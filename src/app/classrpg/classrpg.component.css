@@ -1,0 +1,14 @@
+.bg-style{
+    background: rgb(14,0,255);
+    background: linear-gradient(90deg, rgba(14,0,255,1) 0%, rgba(0,152,182,1) 57%);
+}
+
+*{
+    color: #FAFAFA;
+}
+button{
+    margin-right: 5px;
+}
+input{
+    color: black;
+}

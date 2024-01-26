@@ -1,0 +1,131 @@
+<div class="container p-5" *ngIf="visibilityTable">
+    <div class="border border-light rounded p-5 bg-style">
+      <div>
+        <button type="button" class="btn btn-sm btn-secondary" (click)="showForm()">
+          New Character
+        </button>
+      </div>
+  
+      <hr />
+  
+      <table class="table table-striped table-hover table-sm" *ngIf="characters">
+        <tr class="thead-light">
+          <th>Name</th>
+          <th>Class</th>
+          <th>Race</th>
+          <th>Player</th>
+          <th>Age</th>
+          <th>Backstory</th>
+          <th>Ações</th>
+        </tr>
+  
+        <tr *ngFor="let character of characters; let i = index">
+          <td>{{ character.name }}</td>
+          <td>{{ classNames[i] }}</td>
+          <td>{{ getRaceName(character.race) }}</td>
+          <td>{{ character.player }}</td>
+          <td>{{ character.age }}</td>
+          <td>{{ character.backstory }}</td>
+          <td>
+            <button type="button" class="btn btn-sm btn-outline-info" (click)="formUpdate(character.characterId)">
+              Update
+            </button> |
+            <button type="button" class="btn btn-sm btn-outline-danger" (click)="RemoveConfirmation(character.characterId, character.name, modalContent)">
+              Remove
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+  <div class="container p-5" *ngIf="formVisibility">
+    <div class="row">
+      <div class="border border-dark rounded p-5 shadow bg-style" *ngIf="form">
+        <h6>{{ titleForm }}</h6>
+        <hr />
+  
+        <form [formGroup]="form" (ngSubmit)="SendForm()">
+          <div class="form-group">
+            <label>Name</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="Name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Class</label>
+            <select class="form-control form-control-sm" formControlName="classRpgId"> 
+              <option *ngFor="let class of classVar" [value]="class.classRpgId">{{ class.name }}</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label>Race</label>
+            <select class="form-control form-control-sm" formControlName="race">
+              <option *ngFor="let race of raceOptions" [value]="race">{{ race }}</option>
+            </select>
+          </div>          
+  
+          <div class="form-group">
+            <label>Player</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="Player"
+            />
+          </div>
+  
+          <div class="form-group">
+            <label>Age</label>
+            <input
+              type="number"
+              class="form-control form-control-sm"
+              formControlName="Age"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Backstory</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              formControlName="Backstory"
+            />
+          </div>
+  
+          <div class="container">
+            <div class="row" style="margin-top: 5px;">
+              <div>
+                <button type="submit" class="btn btn-sm btn-outline-secondary">
+                  Save
+                </button>
+                <button type="button" class="btn btn-sm btn-dark" (click)="Back()">
+                  Back
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #modalContent>
+      <div class="modal-header bg-style">
+        <h4 class="modal-title pull-left">Exclusion confirmation</h4>
+        <button type="button" style="background-color: black;" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body bg-style">
+        Do you confirm you want to remove {{Name}}?
+      </div>
+  
+      <div class="modal-footer bg-style">
+          <button type="button" class="btn btn-dark" (click)="modalRef.hide()">No</button>
+          <button type="button" class="btn btn-outline-danger" (click)="RemoveChar(characterid)">Yes</button>
+      </div>
+    </ng-template>

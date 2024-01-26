@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.bg-style{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+#menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    max-width: 50%;
+    height: 50vh;
+    background-color: #444;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 20px;
+    padding: 0 10px;
+    border: 2px solid #FAFAFA;
+}
+
+#menu-style{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 10px 10px;
+    height: 100%;
+    width: 100%;
+    background: rgb(14,0,255);
+    background: linear-gradient(90deg, rgba(14,0,255,1) 0%, rgba(0,152,182,1) 57%);
+    border-radius: 20px;
+}
+.btn{
+    margin-bottom: 20px;
+}
+.btn a{
+    text-decoration: none; /* Example: Reset to default underline */
+    color: inherit; 
+}
+
+#comeback{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+#comeback .btn{
+    margin-top: 5%;
+    font-size: larger;
+}
