@@ -1,6 +1,6 @@
 # CrewApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10. It has the objective to create the classes your rpg players are using and add theirs characters to a database to see how your party is organized.
 
 ## Development server
 
